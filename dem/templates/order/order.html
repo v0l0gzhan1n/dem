@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content  %}
+<form action="" name="form_order" method="POST">
+    {% csrf_token %}
+    <label for="phone">Телефон</label>
+    <input type="text" name="phone" id="phone" pattern="\+7\(\d{3}\)-\d{3}-\d{2}-\d{2}" title="Формат: +7(XXX)-XXX-XX-XX"   placeholder="Введите номер телефона" required>
+    <label for="address">Адрес</label>
+    <input type="text" name="address" id="address" placeholder="Введите адрес" required>
+    <label for="datetime">Дата и время услуги</label>
+    <input type="datetime-local" name="datetime" id="datetime" required>
+    <label for="order_type">Тип услуги</label>
+    <select name="order_type" id="order_type">
+        <option value="common">Общий клининг</option>
+        <option value="general">Генеральная уборка</option>
+        <option value="pastbuild">Послестроительная уборка</option>
+        <option value="chemical">Химчистка ковров</option>
+        <option value="furniture">Мебель</option>
+    </select>
+    <select name="payment_type" id="payment_type">
+        <option value="cash">Наличные</option>
+        <option value="card">Банковская карта</option>
+    </select>
+    <label for="other">У меня иная услуга</label>
+    <input type="checkbox" name="other" id="other"> 
+    <textarea name="comment_others" id="comment_others" cols="30" rows="10" disabled placeholder="Опишите вашу иную услугу"></textarea>
+    {% for message in messages %}
+        <p class="text-danger">{{ message }}</p>
+    {% endfor %}
+    <button type="submit">Создать</button>
+</form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('other');
+        const textarea = document.getElementById('comment_others');
+
+        // Изначально делаем textarea неактивной
+        textarea.disabled = true;
+
+        checkbox.addEventListener('change', function() {
+            // Включаем/выключаем textarea в зависимости от состояния чекбокса
+            textarea.disabled = !this.checked;
+
+            // Меняем стиль для визуального отображения состояния
+            if (!this.checked) {
+                textarea.value = '';
+            }
+        });
+    });
+    document.getElementById('datetime').min = new Date().toISOString().slice(0, 16);
+    </script>
+
+{% endblock %}

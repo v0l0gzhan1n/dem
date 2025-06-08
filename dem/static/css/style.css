@@ -1,0 +1,188 @@
+/* style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Общие стили для форм */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="password"],
+form input[type="email"],
+form input[type="datetime-local"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="tel"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="datetime-local"]:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form textarea:disabled {
+    background-color: #e9ecef;
+    opacity: 0.7;
+}
+
+/* Стили для чекбокса */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Стили для кнопок */
+form button[type="submit"],
+form button[type="reset"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    width: auto;
+    margin-right: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+form button[type="reset"] {
+    background-color: #6c757d;
+}
+
+form button[type="reset"]:hover {
+    background-color: #5a6268;
+}
+
+/* Сообщения об ошибках */
+.text-danger {
+    color: #dc3545;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Ссылки */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Навигация */
+body > a {
+    display: inline-block;
+    margin: 0 10px 20px;
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+body > a:hover {
+    background-color: #e2e6ea;
+}
+
+/* Профиль */
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 300px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

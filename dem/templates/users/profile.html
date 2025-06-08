@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content  %}
+    <div class="profile">
+    {% for order in orders %}
+
+    <div class="col">
+        <div class="card shadow-sm">
+             <div class="card-body">
+                 <p class="card-text">Контактный номер телефона: {{ order.phone_number }}</p>
+                 <p class="card-text">Адрес сдачи заказа: {{ order.address }}</p>
+                 <p class="card-text">Дата сдачи заказа: {{ order.datetime }}</p>
+                 <p class="card-text">Тип заказа: {{ order.get_order_type_display }}</p>
+                 <p class="card-text">Тип оплаты: {{ order.get_payment_type_display }}</p>
+                 {% if order.other == 'on' %}
+                 <p class="card-text">Есть ли другая услуга: да</p>
+                 <p class="card-text">Описание другой услуги: {{ order.comment_others }}</p>
+                 {% endif %}
+                 <p class="card-text">Статус заказа: {{ order.get_status_display }}</p>
+                 {% if order.status == 'reject' %}
+                 <p class="card-text">Комментарий отмены: {{ order.comment_by_admin }}</p>
+                 {% endif %}
+             </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}
